@@ -25,15 +25,15 @@ Documentation
 * Breakdown the use of the tools selected in the build pipeline
 
 ### Checklist
-[] - Test Cases
-[] - CI/CD pipeline
-[] - Alternative colours with a Theme Switcher
+[x] - Test Cases
+[x] - CI/CD aware
+[x] - Alternative colours with a Theme Switcher
 [] - Drag and drop functionality
-[] - React routing
+[x] - React routing
 [] - To do list with options to save and retrieve list items
 [] - Dashboard to visualise
 [] - Form input and validation
 [] - 12 Factor App
-[] - Git commits and history
+[x] - Git commits and history
 [] - Documentation
 

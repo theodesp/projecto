@@ -21,6 +21,26 @@ To install and use the correct node version with nvm:
 nvm install
 ```
 
+
+## Testing
+There are 2 options for testing depending of the enviroment that we run the tests:
+
+**Local testing**
+
+```
+yarn test
+```
+
+**CI testing**
+```
+yarn test:ci
+```
+
+There is also one other option to record coverage
+```
+yarn test:coverage
+```
+
 ## CRA
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
