@@ -1,3 +1,28 @@
+Projecto
+---
+Technical task
+
+## How to install
+
+We recommend the use of yarn
+
+```
+yarn
+```
+
+## Running Locally
+**Node**
+We depend upon the version of node defined in .nvmrc.
+
+You will probably want to install a node version manager. nvm is recommended.
+
+To install and use the correct node version with nvm:
+```
+nvm install
+```
+
+## CRA
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
