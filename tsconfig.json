@@ -6,7 +6,11 @@
       "dom.iterable",
       "esnext"
     ],
+    "rootDirs": [
+      "src"
+    ],
     "allowJs": true,
+    "sourceMap": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -21,5 +25,15 @@
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "config-overrides.js",
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
   ]
 }
