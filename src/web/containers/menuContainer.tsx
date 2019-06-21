@@ -30,8 +30,8 @@ class MenuContainer extends React.PureComponent<{}, MenuContainerState> {
                     <Menu.Item key="home">
                         <Link to="/"><Icon type="home"/> Home</Link>
                     </Menu.Item>
-                    <Menu.Item key="tasks">
-                        <Link to="/tasks"><Icon type="project"/> Tasks</Link>
+                    <Menu.Item key="projects">
+                        <Link to="/projects"><Icon type="project"/> Projects</Link>
                     </Menu.Item>
                     <Menu.Item key="account">
                         <Link to="/account"><Icon type="setting"/> Account</Link>

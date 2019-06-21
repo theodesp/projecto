@@ -1,13 +1,12 @@
 import React from 'react';
-import {Divider, Icon, Layout} from 'antd';
-import {SortableContainer, SortableElement, SortableHandle, SortEndHandler} from "react-sortable-hoc";
-import './taskSidebar.scss';
+import {Divider, Layout} from 'antd';
+import {SortableContainer, SortableElement, SortEndHandler} from 'react-sortable-hoc';
+import {DragHandle} from './dragHandle';
 
 const { Sider } = Layout;
-const DragHandle = SortableHandle(() => <span className="ant-typography"><Icon type="drag" /></span>);
 
 const ProjectListItem = SortableElement(({value}: any) => (
-    <li className="ant-list-item project-list-item">
+    <li className="ant-list-item list-item">
         <DragHandle />
         <div className="ant-list-item-content">
             {value}
@@ -16,7 +15,7 @@ const ProjectListItem = SortableElement(({value}: any) => (
 ));
 
 const ProjectListContainer = SortableContainer(({children}: any) => {
-    return <ul className="ant-list-items">{children}</ul>;
+    return <ul className="draggable-list ant-list-items">{children}</ul>;
 });
 
 export interface TaskSidebarProps {
@@ -24,7 +23,7 @@ export interface TaskSidebarProps {
     items: string[]
 }
 
-export const TaskSidebar: React.FC<TaskSidebarProps> = ({onSortEnd, items}: TaskSidebarProps): JSX.Element => {
+export const ProjectSidebar: React.FC<TaskSidebarProps> = ({onSortEnd, items}: TaskSidebarProps): JSX.Element => {
     return (
         <Sider theme='light' className="project-list">
             <h1>Projects</h1>
@@ -38,5 +37,5 @@ export const TaskSidebar: React.FC<TaskSidebarProps> = ({onSortEnd, items}: Task
     )
 };
 
-export default TaskSidebar;
+export default ProjectSidebar;
 

@@ -1,18 +1,18 @@
 import React from 'react';
 
 import arrayMove from 'array-move';
-import TaskSidebar from '../components/taskSidebar';
+import ProjectSidebar from '../components/projectSidebar';
 
-export interface TaskSideBarContainerState {
+export interface ProjectSidebarContainerState {
     items: string[]
 }
 
-export class TaskSideBarContainer extends React.PureComponent<{}, TaskSideBarContainerState> {
+export class ProjectSidebarContainer extends React.PureComponent<{}, ProjectSidebarContainerState> {
     state = {
         items: ['Project 1', 'Project 2', 'Project 3', 'Project 4', 'Project 5', 'Project 6'],
     };
     onSortEnd = ({oldIndex, newIndex}: any) => {
-        this.setState(({items}: any) => ({
+        this.setState(({items}: ProjectSidebarContainerState) => ({
             items: arrayMove(items, oldIndex, newIndex),
         }));
     };
@@ -20,10 +20,10 @@ export class TaskSideBarContainer extends React.PureComponent<{}, TaskSideBarCon
     render() {
         const {items} = this.state;
         return (
-            <TaskSidebar items={items} onSortEnd={this.onSortEnd}/>
+            <ProjectSidebar items={items} onSortEnd={this.onSortEnd}/>
         );
     }
 }
 
 
-export default TaskSideBarContainer;
+export default ProjectSidebarContainer;

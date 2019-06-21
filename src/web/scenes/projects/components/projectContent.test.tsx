@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TaskScene from './taskScene';
+import ProjectContent from './projectContent';
 
 it('renders without crashing', () => {
-    const checkbox = shallow(<TaskScene />);
+    const checkbox = shallow(<ProjectContent />);
     expect(checkbox).toMatchSnapshot();
 });

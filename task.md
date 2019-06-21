@@ -28,7 +28,7 @@ Documentation
 [x] - Test Cases
 [x] - CI/CD aware
 [x] - Alternative colours with a Theme Switcher
-[] - Drag and drop functionality
+[x] - Drag and drop functionality
 [x] - React routing
 [] - To do list with options to save and retrieve list items
 [] - Dashboard to visualise

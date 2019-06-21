@@ -41,6 +41,11 @@ There is also one other option to record coverage
 yarn test:coverage
 ```
 
+## Routes
+
+Routes are defined by scenes. For example there are 3 scenes in this app. 
+The main scene `App` is where the main dashboard is located. The
+
 ## CRA
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
