@@ -1,38 +1,33 @@
 import React from 'react';
-import {Divider, Layout} from 'antd';
-import {SortableContainer, SortableElement, SortEndHandler} from 'react-sortable-hoc';
-import {DragHandle} from './dragHandle';
+import {Divider, Layout, Icon} from 'antd';
+import {Project} from '../models/project';
+import './projectSidebar.scss';
 
-const { Sider } = Layout;
-
-const ProjectListItem = SortableElement(({value}: any) => (
-    <li className="ant-list-item list-item">
-        <DragHandle />
-        <div className="ant-list-item-content">
-            {value}
-        </div>
-    </li>
-));
-
-const ProjectListContainer = SortableContainer(({children}: any) => {
-    return <ul className="draggable-list ant-list-items">{children}</ul>;
-});
+const {Sider} = Layout;
 
 export interface TaskSidebarProps {
-    onSortEnd?: SortEndHandler;
-    items: string[]
+    items: Project[]
+    selectedProjectId: number;
+    selectProject: (project: Project) => void;
 }
 
-export const ProjectSidebar: React.FC<TaskSidebarProps> = ({onSortEnd, items}: TaskSidebarProps): JSX.Element => {
+export const ProjectSidebar: React.FC<TaskSidebarProps> = ({items, selectedProjectId, selectProject}: TaskSidebarProps): JSX.Element => {
     return (
         <Sider theme='light' className="project-list">
-            <h1>Projects</h1>
-            <Divider />
-            <ProjectListContainer onSortEnd={onSortEnd} useDragHandle>
-                {items.map((value, index) => (
-                    <ProjectListItem key={`item-${index}`} index={index} value={value}/>
+            <h1 className="title">Projects</h1>
+            <Divider/>
+            <ul className="draggable-list ant-list-items">
+                {items.map((project, id) => (
+                    <li className="ant-list-item list-item clickable" key={id} onClick={() => selectProject(project)}>
+                        {
+                            project.id === selectedProjectId ? <Icon type="right" className="selected-icon"/> : null
+                        }
+                        <div className="ant-list-item-content">
+                            {project.text}
+                        </div>
+                    </li>
                 ))}
-            </ProjectListContainer>
+            </ul>
         </Sider>
     )
 };

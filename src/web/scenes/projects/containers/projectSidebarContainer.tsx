@@ -1,29 +1,46 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import arrayMove from 'array-move';
 import ProjectSidebar from '../components/projectSidebar';
+import {AppState} from '../../../models/appState';
+import {Project} from '../models/project';
 
-export interface ProjectSidebarContainerState {
-    items: string[]
+export interface ProjectSidebarContainerProps {
+    projects: Project[];
 }
 
-export class ProjectSidebarContainer extends React.PureComponent<{}, ProjectSidebarContainerState> {
+export interface ProjectSidebarContainerState {
+    selectedProjectId: number;
+}
+
+
+export class ProjectSidebarContainer extends React.PureComponent<ProjectSidebarContainerProps, ProjectSidebarContainerState> {
     state = {
-        items: ['Project 1', 'Project 2', 'Project 3', 'Project 4', 'Project 5', 'Project 6'],
+        selectedProjectId: 0
     };
-    onSortEnd = ({oldIndex, newIndex}: any) => {
-        this.setState(({items}: ProjectSidebarContainerState) => ({
-            items: arrayMove(items, oldIndex, newIndex),
-        }));
+    componentDidMount(): void {
+        this.setState({
+            selectedProjectId: this.props.projects[0].id
+        });
+    }
+
+    selectProject = (project: Project) => {
+        this.setState({
+            selectedProjectId: project.id
+        });
     };
 
     render() {
-        const {items} = this.state;
+        const {projects} = this.props;
         return (
-            <ProjectSidebar items={items} onSortEnd={this.onSortEnd}/>
+            <ProjectSidebar items={projects} selectedProjectId={this.state.selectedProjectId} selectProject={this.selectProject}/>
         );
     }
 }
 
+const mapStateToProps = (state: AppState, ownProps: any = {}) => ({
+    projects: state.projects
+});
 
-export default ProjectSidebarContainer;
+export default connect(mapStateToProps, {})(ProjectSidebarContainer);
+
